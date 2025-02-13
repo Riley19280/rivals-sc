@@ -6,15 +6,13 @@ const api = new MarvelRivalsApi(env.apikey);
 
 const playerNames:string[] = [
     "NotMexican",
-    "Sleep_Tight",
-    "Theta016"
 ]
 
 const players:Player[] = []
-
-playerNames.forEach(async (name) =>{
-    players.push(await Player.createPlayer(api,name));
-})
-
+for(const playerName of playerNames){
+    const player = await Player.createPlayer(api, playerName);
+    players.push(player)
+    console.log(player.getTopThreeCompHeros());
+}
 
 console.log('debug')

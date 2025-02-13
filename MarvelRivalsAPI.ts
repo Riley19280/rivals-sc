@@ -1,14 +1,14 @@
 import axios from "axios";
 
 export class MarvelRivalsApi {
-    apiKey: string;
+    apikey: string;
     apiUrl = `https://marvelrivalsapi.com/api/v1/`;
-    constructor(apiKey: string){
-        this.apiKey = apiKey;
+    constructor(apikey: string){
+        this.apikey = apikey;
     }
 
     private async _makeRequest(endpoint?: string, query?: string, details?: string){
-        let request = axios.get(`${this.apiUrl}${endpoint ? endpoint +'/' : ''}${query ? query + '/' : ''}${details ? details + '/': ''}`,{headers: { 'x-api-key': env.apikey }})
+        let request = axios.get(`${this.apiUrl}${endpoint ? endpoint +'/' : ''}${query ? query + '/' : ''}${details ? details + '/': ''}`,{headers: { 'x-api-key': this.apikey }})
         .then( 
             response => {return response.data})
         .catch(error => {
