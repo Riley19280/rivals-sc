@@ -1,0 +1,14 @@
+{
+  "name": "mrinfo",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "test": "npx ts-node "
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.9"
+  }
+}
