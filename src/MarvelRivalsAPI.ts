@@ -1,6 +1,6 @@
-import axios from "axios";
+const axios = require('axios');
 
-export class MarvelRivalsApi {
+class MarvelRivalsApi {
     apikey: string;
     apiUrl = `https://marvelrivalsapi.com/api/v1/`;
     constructor(apikey: string){
@@ -10,8 +10,8 @@ export class MarvelRivalsApi {
     private async _makeRequest(endpoint?: string, query?: string, details?: string){
         let request = axios.get(`${this.apiUrl}${endpoint ? endpoint +'/' : ''}${query ? query + '/' : ''}${details ? details + '/': ''}`,{headers: { 'x-api-key': this.apikey }})
         .then( 
-            response => {return response.data})
-        .catch(error => {
+            (response: any) => {return response.data})
+        .catch((error: any) => {
             if (error.response) {
                 console.log(error.response.data);
                 console.log(error.response.status);
@@ -32,7 +32,9 @@ export class MarvelRivalsApi {
 
     async getPlayerData(playerToFind:string){
         this._makeRequest('player',playerToFind,'update');
-        await new Promise(resolve => setTimeout(resolve, 12000));
+        await new Promise(resolve => setTimeout(resolve, 1000));
         return this._makeRequest('player',playerToFind);
     }
 }
+
+export {MarvelRivalsApi}
