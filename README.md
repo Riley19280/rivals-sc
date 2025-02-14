@@ -9,3 +9,14 @@ Create a `.env` fine that has an api key for https://marvelrivalsapi.com
 ```shell
 API_KEY=<yourapikey>
 ```
+
+then run
+
+```shell
+npm run dev
+```
+
+If you just want to run the api, use
+```shell
+npm run api
+```
